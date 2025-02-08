@@ -36,7 +36,12 @@
             saveToCSV(csvRow);
         });
 
-       function saveToCSV(data) {
+      function saveToCSV(data) {
+            // Use GitHub API or a backend service to save the data
+            // For simplicity, we'll log the data to the console
+            console.log('Data to save:', data);
+            alert('Data saved (check console for details).');
+        }
   
            
 fetch('https://api.github.com/repos/a1chandan/form/contents/main/data.csv', {
