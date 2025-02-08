@@ -39,11 +39,6 @@
       function saveToCSV(data) {
             // Use GitHub API or a backend service to save the data
             // For simplicity, we'll log the data to the console
-            console.log('Data to save:', data);
-            alert('Data saved (check console for details).');
-        }
-  
-           
 fetch('https://api.github.com/repos/a1chandan/form/main/data.csv', {
     method: 'PUT',
     headers: {
@@ -56,7 +51,9 @@ fetch('https://api.github.com/repos/a1chandan/form/main/data.csv', {
         sha: 'existing-file-sha', // Get this from the GitHub API
     }),
 });
-
+        }
+  
+           
          </script>
 </body>
 </html>
