@@ -36,12 +36,27 @@
             saveToCSV(csvRow);
         });
 
-        function saveToCSV(data) {
-            // Use GitHub API or a backend service to save the data
-            // For simplicity, we'll log the data to the console
-            console.log('Data to save:', data);
-            alert('Data saved (check console for details).');
-        }
+       function saveToCSV(data) {
+    fetch('http://localhost:3000/save', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            id: document.getElementById('id').value,
+            name: document.getElementById('name').value,
+            salary: document.getElementById('salary').value,
+        }),
+    })
+    .then(response => response.text())
+    .then(message => {
+        alert(message);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error saving data');
+    });
+}
     </script>
 </body>
 </html>
