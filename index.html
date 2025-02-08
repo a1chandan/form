@@ -37,26 +37,19 @@
         });
 
        function saveToCSV(data) {
-    fetch('http://localhost:3000/save', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            id: document.getElementById('id').value,
-            name: document.getElementById('name').value,
-            salary: document.getElementById('salary').value,
-        }),
-    })
-    .then(response => response.text())
-    .then(message => {
-        alert(message);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Error saving data');
-    });
-}
-    </script>
+  
+           
+fetch('https://api.github.com/repos/a1chandan/form/contents/data.csv', {
+    method: 'PUT',
+    headers: {
+        'Authorization': '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',
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        message: 'Update CSV file',
+        content: btoa(newData), // Encode new data in base64
+        sha: 'existing-file-sha', // Get this from the GitHub API
+    }),
+});
 </body>
 </html>
